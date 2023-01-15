@@ -1,0 +1,112 @@
+<div class="container">
+  <form class="row g-3" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input
+        appCheckEmptyInputs
+        type="email"
+        class="form-control"
+        id="inputEmail4"
+        [(ngModel)]="email"
+        name="email"
+      />
+      <p *ngIf="this.email.length < 1">Introduce un formato correcto</p>
+    </div>
+    <div class="col-md-6">
+      <label for="name" class="form-label">Name</label>
+      <input
+        appCheckEmptyInputs
+        type="text"
+        class="form-control"
+        id="name"
+        [(ngModel)]="name"
+        name="name"
+      />
+    </div>
+    <div class="col-auto">
+      <label class="visually-hidden" for="autoSizingInputGroup">Github</label>
+      <div class="input-group">
+        <div
+          class="input-group-text"
+          appCheckEmptyInputs
+          type="text"
+          class="form-control"
+        >
+          @
+        </div>
+        <input
+          id="github"
+          [(ngModel)]="github"
+          name="github"
+          type="text"
+          class="form-control"
+          placeholder="Github"
+        />
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck" />
+        <label class="form-check-label" for="gridCheck">
+          Agree the terms
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Contact me</button>
+    </div>
+  </form>
+
+  <div class="table">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Github Account</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <th>{{ this.user.name }}</th>
+          <th>{{ this.user.email }}</th>
+          <th>{{ this.user.github }}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="form2">
+    <form>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          [(ngModel)]="person.email"
+          aria-describedby="nameHelp"
+          name="email"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="Password1" class="form-label">Password</label>
+        <input
+          [(ngModel)]="person.password"
+          name="password"
+          type="password"
+          class="form-control"
+          id="Password1"
+          required
+          pattern=""
+        />
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="validatePerson()">
+        Submit
+      </button>
+    </form>
+    <p *ngIf="isValid">
+      Your email: {{ person.email }} and password:{{ person.password }}
+    </p>
+  </div>
+</div>
