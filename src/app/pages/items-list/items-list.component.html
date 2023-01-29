@@ -1,0 +1,19 @@
+<h1>Lista de videojuegos</h1>
+<div class="container">
+  <div class="card" *ngFor="let item of this.characters" style="width: 18rem">
+    <img src="{{ item.background_image }}" class="card-img-top" alt="" />
+    <div class="card-body">
+      <h5 class="card-title">{{ item.name }}</h5>
+      <p class="card-text">Playtime: {{ item.playtime }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let platform of this.item.platforms" class="list-group-item">
+        {{ platform.platform.name }}
+      </li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">More info</a>
+      <a href="#" class="card-link">Download</a>
+    </div>
+  </div>
+</div>

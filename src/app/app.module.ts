@@ -12,7 +12,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ChangeColorHoverDirective } from './directives/change-color-hover.directive';
 import { FormsModule } from '@angular/forms';
 import { CheckEmptyInputsDirective } from './directives/check-empty-inputs.directive';
-
+import { ItemsListComponent } from './pages/items-list/items-list.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,8 +24,9 @@ import { CheckEmptyInputsDirective } from './directives/check-empty-inputs.direc
     HomeComponent,
     ChangeColorHoverDirective,
     CheckEmptyInputsDirective,
+    ItemsListComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
